@@ -7,11 +7,9 @@
 
 <div align="center">
     <div align="right">
-        <div align="right"><button type="button" class="btn btn-primary" id="relogin" name="relogin">重新登陆</button></div>
+        <div align="left"><button type="button" class="btn btn-primary" id="relogin" name="relogin">重新登陆</button></div>
     </div>
-    <div class="col-lg-9 col-md-9 col-sm-12">
-        <h1><font color="black">欢迎来到私房菜电信商城！</font></h1>
-    </div>
+
 
 </div>
 
