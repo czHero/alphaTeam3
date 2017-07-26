@@ -8,7 +8,11 @@
 <div align="center">
     <div align="right">
         <div align="left"><button type="button" class="btn btn-primary" id="relogin" name="relogin">重新登陆</button></div>
-    </div>
+
+        <div align="left">
+        <input class="" id="email1"  name="email1" type="text" value="">
+        </div>
+     </div>
 
 
 </div>
@@ -18,5 +22,14 @@
 <script src="../static/js/jquery-3.2.1.min.js" type="text/javascript"></script>
 <script src="../static/js/my.js"               type="text/javascript"></script>
 <script src="../static/js/bootstrap.js"        type="text/javascript"></script>
+
+<script>  function setValueB()
+{
+    var a =  name=getCookie("name");
+    document.getElementById("email1").value = a;
+}
+
+setValueB();
+</script>
 </body>
 </html>
