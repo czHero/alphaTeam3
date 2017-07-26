@@ -1,7 +1,8 @@
 $("#login").on('click', function() {
 	var username = $("#username").val();
   	var password = $("#password").val();
-  	checkUser(username,password);
+  	var captcha = $("#captcha").val();
+  	checkUser(username,password,captcha);
 });
 
 $("#register").on("click",function(){
@@ -65,7 +66,7 @@ $("#register_submit").on('click',function(){
 });
 
 
-function checkUser(username,password){
+function checkUser(username,password,captcha){
 	if(username == null || username == ''){
         window.wxc.xcConfirm("用户名不能为空!", window.wxc.xcConfirm.typeEnum.warning);
         return false;
@@ -76,12 +77,17 @@ function checkUser(username,password){
         return false;
     }
 
+    if(captcha == null || captcha  == ''){
+        window.wxc.xcConfirm("验证码不能为空!", window.wxc.xcConfirm.typeEnum.warning);
+        return false;
+    }
 	$.ajax({
 		url:"/login/check",
         type:'POST',
 		data:{
 			"username":username,
-			"password":password
+			"password":password,
+			"captcha":captcha
 		},
         dataType:'json',
         success:function(result){
@@ -98,6 +104,9 @@ function checkUser(username,password){
                         window.location.href="/user/list";
                     }
                 });
+            }
+            else if (result.flag == "-2") {
+                window.wxc.xcConfirm("验证码错误!请重新输入...", window.wxc.xcConfirm.typeEnum.warning);
             }else{
                 window.wxc.xcConfirm("用户名或密码错误!请重新输入...", window.wxc.xcConfirm.typeEnum.warning);
             }
