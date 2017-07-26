@@ -36,3 +36,9 @@
         $('#pswahelp').hide();
     });
 })**/
+
+// 更换验证码
+                         $('#captchaImage').click(function()
+                         {
+                             $('#captchaImage').attr("src", "login/captcha?timestamp=" + (new Date()).valueOf());
+                         });
