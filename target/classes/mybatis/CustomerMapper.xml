@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.telecom.dao.CustomerMapper">
+	<resultMap id="resultMapper" type="com.telecom.domain.customer">
+		<id column="id"                             property="id"/>
+		<result column="username"                   property="username"/>
+		<result column="password"                   property="password"/>
+		<result column="email"                      property="email"/>
+		<result column="mobile"                     property="mobile"/>
+		<result column="real_name"                  property="real_name"/>
+		<result column="admin_flg"                  property="admin_flg"/>
+		<result column="reg_time"                   property="reg_time"/>
+		<result column="update_time"                property="update_time"/>
+	</resultMap>
+
+	<select id = "query" resultMap = "resultMapper">
+		select * from customer where 1 = 1
+		<if test="id != null and id != 0">
+				and id = #{id}
+		</if>
+		<if test="username != null and username !=''">
+			and username = #{username}
+		</if>
+		<if test="real_name != null and real_name != ''">
+			  and real_name = #{real_name}
+		</if>
+		<if test="password != null and password != ''">
+			and password = #{password}
+		</if>
+	</select>
+
+	<update id = "update">
+		update customer
+		SET  <if test="update_time != null and update_time != ''" >
+				  update_time= #{update_time}
+			</if>
+		    <if test="password != null and password !=''">
+				,password = #{password}
+			</if>
+			<if test="real_name != null and real_name !=''">
+				,real_name = #{real_name}
+			</if>
+			<if test="mobile != null and mobile !=''">
+				,mobile = #{mobile}
+			</if>
+		    <if test="email != null and email != ''">
+				,email = #{email}
+			</if>
+	    where id = #{id}
+	</update>
+
+	<insert id="insert">
+		insert into customer
+		(username,
+		password,
+		email,
+		mobile,
+		real_name,
+		admin_flg,
+		reg_time,
+		update_time) values (
+		#{username},
+		#{password},
+		#{email},
+		#{mobile},
+		#{real_name},
+		#{admin_flg},
+		#{reg_time},
+		#{update_time}
+		)
+	</insert>
+</mapper>

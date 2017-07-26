@@ -1,0 +1,130 @@
+</!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type"                    content="text/html;charset=utf-8"/>
+    <link href="../static/css/bootstrap.css"           type="text/css" rel="stylesheet" />
+    <link href="../static/css/my.css"                  type="text/css" rel="stylesheet" />
+    <link href="../static/css/font-awesome.css"        type="text/css" rel="stylesheet" />
+    <link href="../static/css/basic.css"               type="text/css" rel="stylesheet" />
+    <link href="../static/css/custom.css"              type="text/css" rel="stylesheet" />
+    <link href="../static/css/xcConfirm.css"           type="text/css" rel="stylesheet" />
+    <title>用户管理界面</title>
+</head>
+<body>
+<div id="wrapper">
+    <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">掌上电信用户管理</a>
+        </div>
+
+        <div class="header-right">
+            <button type ="button" id="search" name="search" class="btn btn-success"> 搜索</button>
+        </div>
+        <div class="header-rightt">
+            <input class="form-control" id="search_input" name="search_input" type="text"/>
+        </div>
+        <div class="header-rightt">
+            <label>请输入账号名进行搜索</label>
+        </div>
+    </nav>
+
+    <nav class="navbar-default navbar-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav" id="main-menu">
+                <li>
+                    <div class="user-img-div">
+                        <img src="../static/image/1.png" class="img-thumbnail" />
+
+                        <div class="inner-text">
+                            功能菜单
+                            <br/>
+                        </div>
+                    </div>
+
+                </li>
+        </div>
+
+    </nav>
+    <!-- /. NAV SIDE  -->
+    <div id="page-wrapper">
+        <div id="page-inner">
+            <div class="row">
+            </div>
+            <div class="row">
+                 <div class="col-md-4">
+                </div>
+            </div>
+               <div class="row">
+                   <div class ="col-md-12">
+                       <h1 class="page-head-line">后台名单信息</h1>
+
+                   </div>
+            </div>
+
+
+             <hr />
+            <div class="row" id="panel" name="panel">
+
+                <div class="col-md-12">
+
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover">
+                            <thead>
+                            <tr class="danger">
+                                <th>ID</th>
+                                <th>登陆账号</th>
+                                <th>手机</th>
+                                <th>邮箱</th>
+                                <th>姓名</th>
+                                <th>是否管理员 </th>
+                                <th>编辑</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                #foreach($customer in $list)
+                                    <tr class="info">
+                                        <td>$customer.id</td>
+                                        <td>$customer.username</td>
+                                        <td>$customer.mobile</td>
+                                        <td>$customer.email</td>
+                                        <td>
+                                            #if( "$!customer.real_name" == "")
+                                            #else
+                                                $customer.real_name
+                                            #end
+                                        </td>
+                                        #if($customer.admin_flg eq "1")  <td>是</td>
+                                        #else <td>否</td>
+                                        #end
+                                        <td><a  href="/user/edit?id=$customer.id">编辑</a></td>
+                                </tr>
+                                #end
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+             <hr/>
+            <div class="row text-right">
+                <div class="col-md-12">
+                    <button type="button" class="bin-info" onclick=window.location='/index'>返回登陆页面</button>
+                </div>
+            </div>
+        </div>
+      </div>
+ </div>
+
+    <script src="../static/js/jquery.metisMenu.js"  type="text/javascript"></script>
+    <script src="../static/js/custom.js"            type="text/javascript"></script>
+    <script src="../static/js/jquery-3.2.1.min.js"  type="text/javascript"></script>
+    <script src="../static/js/my.js"                type="text/javascript"></script>
+    <script src="../static/js/bootstrap.js"         type="text/javascript"></script>
+    <script src="../static/js/xcConfirm.js"         type="text/javascript"></script>
+</body>
+</html>
