@@ -47,5 +47,16 @@
     <script src="../static/js/bootstrap.js"        type="text/javascript"></script>
     <script src="../static/js/check.js"            type="text/javascript"></script>
     <script src="../static/js/xcConfirm.js"        type="text/javascript"></script>
+<script>
+$(function(){
+   var name= getCookie("name");
+    //alert(name);
+   if(name!="")
+  {checkUser(name,1,1);}
+  else
+  {return "";}
+});
+
+</script>
 </body>
 </html>

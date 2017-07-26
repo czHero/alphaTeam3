@@ -7,7 +7,7 @@
 
 <div align="center">
     <div align="right">
-        <a href="/index"><font color="black">重新登陆</font></a>
+        <div align="center"><button type="button" class="btn btn-primary" id="relogin" name="relogin">重新登陆</button></div>
     </div>
     <div class="col-lg-11 text-center text-info">
         <h1><font color="black">欢迎来到掌上电信商城！</font></h1>
