@@ -41,8 +41,8 @@
 
                 <div class="form-group">
                         <span class="pull-right">
-                            <a href="/pswfinder/forget" ><font color="#fffaf0">忘记密码？</font></a>
-                            <a href="/register/home" ><font color="#fffaf0">注册</font></a>
+                            <a href="/pswfinder/forget" ><font color="#2B542C">忘记密码？</font></a>
+                            <a href="/register/home" ><font color="#2B542C">注册</font></a>
 
 											</span></div>
             </div>
