@@ -1,7 +1,8 @@
 $("#login").on('click', function() {
 	var username = $("#username").val();
   	var password = $("#password").val();
-  	checkUser(username,password,0);
+  	var captcha = $("#captcha").val();
+  	checkUser(username,password,captcha,0);
 });
 
 $("#relogin").on('click', function() {
@@ -99,7 +100,7 @@ function clearCookie(name) {
     //alert(name);
 }
 
-function checkUser(username,password,iscookie) {
+function checkUser(username,password,captcha,iscookie) {
     if (iscookie == 0) {
         if (username == null || username == '') {
             window.wxc.xcConfirm("用户名不能为空!", window.wxc.xcConfirm.typeEnum.warning);
@@ -110,13 +111,18 @@ function checkUser(username,password,iscookie) {
             window.wxc.xcConfirm("密码不能为空!", window.wxc.xcConfirm.typeEnum.warning);
             return false;
         }
+        if(captcha == null || captcha  == ''){
+                window.wxc.xcConfirm("验证码不能为空!", window.wxc.xcConfirm.typeEnum.warning);
+                return false;
+            }
 
         $.ajax({
             url: "/login/check",
             type: 'POST',
             data: {
                 "username": username,
-                "password": password
+                "password": password,
+                "captcha":captcha
             },
             dataType: 'json',
             success: function (result) {
@@ -136,6 +142,8 @@ function checkUser(username,password,iscookie) {
                             window.location.href = "/user/list";
                         }
                     });
+                }else if (result.flag == "-2") {
+                    window.wxc.xcConfirm("验证码错误!请重新输入...", window.wxc.xcConfirm.typeEnum.warning);
                 } else {
                     window.wxc.xcConfirm("用户名或密码错误!请重新输入...", window.wxc.xcConfirm.typeEnum.warning);
                 }

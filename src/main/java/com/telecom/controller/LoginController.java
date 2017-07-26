@@ -31,7 +31,9 @@ public class LoginController {
     @RequestMapping("/check")
     @ResponseBody
     public Map<String,String> hello(@RequestParam(value="username",required = true) String username,
-                                    @RequestParam(value="password",required = true) String password)
+                                    @RequestParam(value="password",required = true) String password,
+                                    @RequestParam(value="captcha",required = true) String captcha,
+                                    HttpServletRequest request)
     {
         String sessionrandomstring = (String) request.getSession(true).getAttribute("randomString");
         Map<String, String> resultMap = new HashMap<String, String>();
