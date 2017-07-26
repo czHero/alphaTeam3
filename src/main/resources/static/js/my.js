@@ -132,8 +132,8 @@ function checkUser(username,password,captcha,iscookie) {
                         onOk: function () {
                             window.location.href = "/home";
                             setCookie("name", username, 1);
-                            var name = getCookie("name");
-                            alert(name);
+                            //var name = getCookie("name");
+                            //alert(name);
                         }
                     });
                 } else if (result.flag == "1") {
