@@ -101,7 +101,7 @@
                                         #else <td>否</td>
                                         #end
                                         <td><a  href="/user/edit?id=$customer.id">修改</a></td>
-                                        <td><a type="button" href="javascript:deleteclick('$customer.id')" id="delete" name="delete">删除</a></td>
+                                        <td><a type="button" href="javascript:deleteclick('$customer.username')" id="delete" name="delete">删除</a></td>
                                 </tr>
                                 #end
                             </tbody>
