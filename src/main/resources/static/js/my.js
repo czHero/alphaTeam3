@@ -159,9 +159,14 @@ function checkUser(username,password,captcha,iscookie) {
     }
     if(iscookie == 1)
     {
-        window.location.href = "/home";
 
-        }
+
+        window.wxc.xcConfirm("您已经登陆!" + username, window.wxc.xcConfirm.typeEnum.success, {
+            onOk: function () {
+                window.location.href = "/home";
+            }
+        });
+    }
 }
 
 
