@@ -99,7 +99,7 @@
                         <div class="row">
                             <div class="col-md-1"><input type="checkbox" class='check' id="agree" name="agree"></div>
                             <div class="col-md-11">
-                                <p class='help'>阅读并接受《<a href="/register/protocol" target="_blank">掌上电信用户协议</a>》</p>
+                                <p class='help'>阅读并接受《<a href="/register/protocol" target="_blank">用户协议</a>》</p>
                             </div>
                         </div>
                     </form>
