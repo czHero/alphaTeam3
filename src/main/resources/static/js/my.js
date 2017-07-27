@@ -245,3 +245,36 @@ function deleteclick(username){
     });
 };
 
+
+function resetPassword(){
+    var reset_uname=$("#reset_uname").val();
+    var reset_phone=$("#reset_phone").val();
+    var reset_email=$("#reset_email").val();
+
+    if(reset_uname==null||reset_phone==null||reset_email==null||reset_uname==""||reset_phone==""||reset_email==""){
+        window.wxc.xcConfirm("请输入完整信息...", window.wxc.xcConfirm.typeEnum.warning);
+        return;
+    }
+    $.ajax({
+            url:"/user/reset",
+            type:'POST',
+            data:{
+                "username":reset_uname,
+                "mobile":reset_phone,
+                "email":reset_email,
+            },
+            dataType:'json',
+            success:function(result){
+               if(result.flag == "0"){
+                    window.wxc.xcConfirm("重置成功"+result.message, window.wxc.xcConfirm.typeEnum.success, {
+                                        onOk: function () {
+                                            window.location.href="/index";
+                                        }
+                                    });
+               }else{
+                    window.wxc.xcConfirm(result.message, window.wxc.xcConfirm.typeEnum.warning);
+               }
+
+            }
+        });
+}

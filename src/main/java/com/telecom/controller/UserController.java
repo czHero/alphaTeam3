@@ -115,6 +115,34 @@ public class UserController {
 
     }
 
+    @RequestMapping("/reset")
+    @ResponseBody
+    public Map<String,String> userReset(@RequestParam(value="username",required = true) String username,
+                                         @RequestParam(value="mobile",required = true) String mobile,
+                                         @RequestParam(value="email",required = true) String email){
+
+        Map<String,String> resultMap = new HashMap<String,String>();
+        customer c = new customer();
+        c.setUsername(username);
+        c.setEmail(email);
+        c.setMobile(mobile);
+
+        List<customer> vo = cusomerServie.query(c);
+        if(vo.size()!=0){
+            for(customer v : vo){
+                v.setPassword("e10adc3949ba59abbe56e057f20f883e");
+                cusomerServie.update(v);
+            }
+            resultMap.put("flag", "0");
+            resultMap.put("message", "密码已重置为123456");
+        }else{
+            resultMap.put("flag", "-1");
+            resultMap.put("message", "信息不正确");
+        }
+        return resultMap;
+
+    }
+
     @RequestMapping("/delete")
     @ResponseBody
     public Map<String,String> delete(@RequestParam(value="username",required = false) String username){

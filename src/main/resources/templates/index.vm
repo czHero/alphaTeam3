@@ -62,7 +62,7 @@
             </div>
         </div>
     </div>
-    <!-- 模态框（Modal） -->
+    <!-- 注册（Modal） -->
     <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -114,10 +114,10 @@
         <!-- /.modal -->
     </div>
 
-    <!-- 模态框（Modal） -->
+    <!-- 忘记密码（Modal） -->
     <div class="modal fade" id="forgetpasswordModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content" style="width:323px; height:280px;left:130;">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h4 class="modal-title" id="myModalLabel">
@@ -126,36 +126,30 @@
                 </div>
                 <div class="modal-body">
                     <form role="form">
-                        <hr />
-                        <ul class="nav nav-tabs nav-justified">
-                            <li role="presentation" class="active"><a href="#">验证手机号</a></li>
-                            <li role="presentation"><a href="#">设置密码</a></li>
-                            <li role="presentation"><a href="#">完成</a></li>
-                        </ul>
-                        <br />
                         <div class="form-group input-group">
-                            <span class="input-group-addon"><i class="fa fa-tag"  ></i></span>
-                            <input id="phoneNum" name="phoneNum" type="text" class="form-control" placeholder="手机号码" />
+                            <span class="input-group-addon"><i class="fa fa-tag"  >用户名</i></span>
+                            <input id="reset_uname" name="reset_uname" type="text" class="form-control" placeholder="用户名" />
                         </div>
                         <div class="form-group input-group">
-                            <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
-                            <input class="form-control" id="captcha" name="captcha" placeholder="验证码" />
+                            <span class="input-group-addon"><i class="fa fa-tag"  >手机号码</i></span>
+                            <input id="reset_phone" name="reset_phone" type="text" class="form-control" placeholder="手机号码" />
+                        </div>
+                        <div class="form-group input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock"  >邮箱地址</i></span>
+                            <input class="form-control" id="reset_email" name="reset_email" placeholder="邮箱地址" />
 
                         </div>
 
 
                         <div align="center">
-                            <a href="#" class="btn btn-primary" id="next" name="next">下一步</a>
+                            <button id="btn_reset_pwd" onclick="resetPassword()" type="button" class="btn btn-primary">重置</button>
                         </div>
 
                         <div class="form-group"></div>
-                        <hr/>
+
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary">修改</button>
-                </div>
+
             </div>
             <!-- /.modal-content -->
         </div>
