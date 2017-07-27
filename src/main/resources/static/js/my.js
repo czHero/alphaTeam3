@@ -146,6 +146,7 @@ function checkUser(username,password,captcha,iscookie) {
                     window.wxc.xcConfirm("登陆成功,欢迎回来!" + username, window.wxc.xcConfirm.typeEnum.success, {
                         onOk: function () {
                             window.location.href = "/user/list";
+                            setCookie("name", username, 1);
                         }
                     });
                 }else if (result.flag == "-2") {
