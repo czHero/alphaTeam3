@@ -13,4 +13,6 @@ public interface CustomerService {
     public boolean insert(customer c);
 
     public void update(customer c);
+
+    public boolean delete(customer c);
 }

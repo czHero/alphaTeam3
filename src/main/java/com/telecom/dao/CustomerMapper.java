@@ -18,4 +18,6 @@ public interface CustomerMapper {
     public void insert(customer c);
 
     public void update(customer c);
+
+    public void delete(customer c);
 }

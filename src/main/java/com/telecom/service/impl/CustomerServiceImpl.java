@@ -19,6 +19,19 @@ public class CustomerServiceImpl implements CustomerService {
     @Resource
     CustomerMapper mapper;
 
+    public boolean delete(customer c){
+         mapper.delete(c);
+        int id = c.getId();
+        customer vo = new customer();
+        vo.setId(id);
+        List<customer> lst = mapper.query(vo);
+        if(lst.size() == 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
     public void update(customer c){
         mapper.update(c);
     }

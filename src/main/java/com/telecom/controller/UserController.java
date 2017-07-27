@@ -110,8 +110,26 @@ public class UserController {
          vo.setEmail(email);
 
         cusomerServie.update(vo);
-        resultMap.put("flag","0");
+        resultMap.put("flag", "0");
         return resultMap;
 
+    }
+
+    @RequestMapping("/delete")
+    @ResponseBody
+    public Map<String,String> delete(@RequestParam(value="username",required = false) String username){
+        Map<String,String> resultMap = new HashMap<String,String>();
+        customer c = new customer();
+        c.setUsername(username);
+
+        boolean flag = cusomerServie.delete(c);
+        if(flag){
+            resultMap.put("flag","0");
+            resultMap.put("message","删除成功");
+        }else{
+            resultMap.put("flag","-1");
+            resultMap.put("message"," 删除失败!");
+        }
+        return resultMap;
     }
 }
