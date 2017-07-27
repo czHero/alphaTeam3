@@ -1,6 +1,9 @@
 $("#login").on('click', function() {
 	var username = $("#username").val();
-  	var password = $("#password").val();
+  	var password1 = $("#password").val();
+    var password =  hex_md5(password1);
+
+
   	var captcha = $("#captcha").val();
   	checkUser(username,password,captcha,0);
 });
@@ -17,9 +20,12 @@ $("#register").on("click",function(){
 $("#register_submit").on('click',function(){
     var username = $("#username_register").val();
     var mobile = $("#phone").val();
-    var password = $("#psw").val();
-	var password2 = $("#pswa").val();
+    var password11 = $("#psw").val();
+	var password22 = $("#pswa").val();
 	var email = $("#email").val();
+    var password =  hex_md5(password11);
+    var password2 =  hex_md5(password22);
+
 
 	if(username == "" || username == null){
         window.wxc.xcConfirm("用户名不能为空!", window.wxc.xcConfirm.typeEnum.warning);
@@ -203,4 +209,37 @@ $("#modify_submit").on('click',function(){
     });
 });
 
+$("#delete").on('click',function(){
+
+    var id = $("#customer.username").val();
+
+    $.ajax({
+        url:"/user/delete",
+        type:'POST',
+        data:{
+            "username":username
+        },
+        dataType:'text',
+        success:function(result){
+            $("#panel").html(result);
+        }
+    });
+});
+
+function deleteclick(username){
+
+    var id = username;
+    $.ajax({
+        url:"/user/delete",
+        type:'POST',
+        data:{
+            "username":username
+        },
+        dataType:'text',
+        success:function(result){
+          alert(result);
+            window.location.href="/user/list";
+        }
+    });
+};
 

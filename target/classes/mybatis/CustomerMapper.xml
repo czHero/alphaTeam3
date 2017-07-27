@@ -70,4 +70,8 @@
 		#{update_time}
 		)
 	</insert>
+
+	<delete id="delete">
+		delete FROM customer WHERE username = #{username}
+	</delete>
 </mapper>
