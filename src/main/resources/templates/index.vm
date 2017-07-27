@@ -16,6 +16,7 @@
     <div>
         <canvas id="canvas" style="position:absolute"></canvas>
         <div class="container">
+            <img src="../static/image/1.gif" width="15%" style="position:absolute;left:0px;top:0px;z-index:99999;"/>
             <div class="row text-center " style="padding-top:150px;">
                 <div class="col-md-12 text-center text-info">
                     <h2>欢迎登陆私房菜电信商城</h2>
