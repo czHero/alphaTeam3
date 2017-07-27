@@ -223,7 +223,6 @@ $("#delete").on('click',function(){
 function deleteclick(username){
 
     var id = username;
-   alert(id);
     $.ajax({
         url:"/user/delete",
         type:'POST',
@@ -232,7 +231,8 @@ function deleteclick(username){
         },
         dataType:'text',
         success:function(result){
-            $("#panel").html(result);
+          alert(result);
+            window.location.href="/user/list";
         }
     });
 };
