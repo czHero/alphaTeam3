@@ -11,7 +11,7 @@
 
         <div align="left">
             <b>当前登陆用户：</b>  <input class="" id="showname"  name="showname" type="text" value="" style="border:0px;>
-            <div align="left"><button type="button" class="btn btn-primary" id="relogin" name="relogin">重新登陆</button></div>
+            <div align="left"><button type="button" class="btn btn-primary" id="relogin" name="relogin">退出</button></div>
         </div>
      </div>
 
