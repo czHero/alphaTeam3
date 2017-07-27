@@ -159,8 +159,6 @@ function checkUser(username,password,captcha,iscookie) {
     }
     if(iscookie == 1)
     {
-
-
         window.wxc.xcConfirm("您已经登陆!" + username, window.wxc.xcConfirm.typeEnum.success, {
             onOk: function () {
                 window.location.href = "/home";
@@ -242,8 +240,11 @@ function deleteclick(username){
         },
         dataType:'text',
         success:function(result){
-          alert(result);
-            window.location.href="/user/list";
+            window.wxc.xcConfirm("删除成功", window.wxc.xcConfirm.typeEnum.success, {
+                onOk: function () {
+                    window.location.href="/user/list";
+                }
+            });
         }
     });
 };
