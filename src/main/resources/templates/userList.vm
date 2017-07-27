@@ -80,7 +80,6 @@
                                     <th>登陆账号</th>
                                     <th>手机</th>
                                     <th>邮箱</th>
-                                    <th>姓名</th>
                                     <th>是否管理员 </th>
                                     <th>修改</th>
                                     <th>删除</th>
@@ -93,9 +92,7 @@
                                     <td>$customer.username</td>
                                     <td>$customer.mobile</td>
                                     <td>$customer.email</td>
-                                    <td>
-                                        #if( "$!customer.real_name" == "") #else $customer.real_name #end
-                                    </td>
+
                                     #if($customer.admin_flg eq "1")
                                     <td>是</td>
                                     #else
