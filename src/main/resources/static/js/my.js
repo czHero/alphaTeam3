@@ -13,6 +13,11 @@ $("#relogin").on('click', function() {
     window.location.href = "/index";
 });
 
+$("#quick").on('click', function() {
+    clearCookie("name");
+    window.location.href = "/index";
+});
+
 $("#register").on("click",function(){
     window.location.href = "/register/home";
 })
@@ -71,7 +76,8 @@ function setCookie(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
     var expires = "expires="+d.toUTCString();
-    document.cookie = cname + "=" + cvalue + "; " + expires;
+
+    document.cookie =  cname + "=" + cvalue + "; path=/;" + expires;
 }
 
 //获取cookie
@@ -151,7 +157,7 @@ function checkUser(username,password,captcha,iscookie) {
             onOk: function () {
                 if(username=='admin'){window.location.href = "/user/list";}
                 else{window.location.href = "/home";}
-
+                //window.location.href = "/home";
             }
         });
     }
