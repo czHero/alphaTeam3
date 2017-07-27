@@ -18,6 +18,7 @@ $("#register").on("click",function(){
 })
 
 $("#register_submit").on('click',function(){
+    if (handleValidation().form()) {
     var username = $("#username_register").val();
     var mobile = $("#phone").val();
     var password11 = $("#psw").val();
@@ -27,31 +28,16 @@ $("#register_submit").on('click',function(){
     var password2 =  hex_md5(password22);
 
 
-	if(username == "" || username == null){
-        window.wxc.xcConfirm("用户名不能为空!", window.wxc.xcConfirm.typeEnum.warning);
-	    return false;
-    }
-
-    if(mobile == "" || mobile == null){
-        window.wxc.xcConfirm("手机号码不能为空!", window.wxc.xcConfirm.typeEnum.warning);
-        return false;
-    }
-
-    if(email == "" || email == null){
-        window.wxc.xcConfirm("邮箱不能为空!", window.wxc.xcConfirm.typeEnum.warning);
-        return false;
-    }
-
-    if(password == "" || password == null){
-        window.wxc.xcConfirm("密码不能为空!", window.wxc.xcConfirm.typeEnum.warning);
-        return false;
-    }
 
 	if(password != password2){
         window.wxc.xcConfirm("两次密码输入不一致！请检查!", window.wxc.xcConfirm.typeEnum.warning);
 		return false;
 	}
 
+    if( !$("#agree").prop('checked')){
+        window.wxc.xcConfirm("请阅读并同意用户协议!", window.wxc.xcConfirm.typeEnum.warning);
+    		return false;
+    }
 	$.ajax({
         url:"/user/insert",
         type:'POST',
@@ -74,6 +60,7 @@ $("#register_submit").on('click',function(){
 		   }
         }
 	})
+	}
 });
 
 
