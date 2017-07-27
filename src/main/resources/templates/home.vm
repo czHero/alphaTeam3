@@ -27,7 +27,11 @@
 <script>  function setValueB()
 {
     var a =  name=getCookie("name");
-    document.getElementById("showname").value = a;
+    if(a==null || a=="")
+    {document.getElementById("showname").value = "未登陆";}
+    else
+    {document.getElementById("showname").value = a;}
+
 }
 
 setValueB();
