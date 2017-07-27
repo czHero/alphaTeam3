@@ -2,7 +2,7 @@ $("#login").on('click', function() {
 	var username = $("#username").val();
   	var password1 = $("#password").val();
     var password =  hex_md5(password1);
-    alert(password);
+
 
   	var captcha = $("#captcha").val();
   	checkUser(username,password,captcha,0);
