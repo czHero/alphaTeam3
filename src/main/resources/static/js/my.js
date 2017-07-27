@@ -162,7 +162,9 @@ function checkUser(username,password,captcha,iscookie) {
     {
         window.wxc.xcConfirm("您已经登陆!" + username, window.wxc.xcConfirm.typeEnum.success, {
             onOk: function () {
-                window.location.href = "/home";
+                if(username=='admin'){window.location.href = "/user/list";}
+                else{window.location.href = "/home";}
+
             }
         });
     }
