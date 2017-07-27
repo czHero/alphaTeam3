@@ -203,4 +203,36 @@ $("#modify_submit").on('click',function(){
     });
 });
 
+$("#delete").on('click',function(){
 
+    var id = $("#customer.username").val();
+
+    $.ajax({
+        url:"/user/delete",
+        type:'POST',
+        data:{
+            "username":username
+        },
+        dataType:'text',
+        success:function(result){
+            $("#panel").html(result);
+        }
+    });
+});
+
+function deleteclick(username){
+
+    var id = username;
+   alert(id);
+    $.ajax({
+        url:"/user/delete",
+        type:'POST',
+        data:{
+            "username":username
+        },
+        dataType:'text',
+        success:function(result){
+            $("#panel").html(result);
+        }
+    });
+};

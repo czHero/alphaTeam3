@@ -16,9 +16,9 @@
         <div class="col-md-12 text-center text-info">
             <h2>欢迎登陆私房菜电信商城</h2>
         </div></div>
-    <div class="row">
+    <div class="row" >
         <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
-            <div class="panel-body">
+            <div class="panel-body" style="background-color: rgba(219, 224, 239, 0.53);">
                 <div class="form-group input-group">
                     <span class="input-group-addon">用户名称</span>
                     <input class="form-control" id="username" name="username" type="text" placeholder="请输入用户名">
@@ -41,8 +41,8 @@
 
                 <div class="form-group">
                         <span class="pull-right">
-                            <a href="/pswfinder/forget" ><font color="#fffaf0">忘记密码？</font></a>
-                            <a href="/register/home" ><font color="#fffaf0">注册</font></a>
+                            <a href="/pswfinder/forget" ><font color="#2B542C">忘记密码？</font></a>
+                            <a href="/register/home" ><font color="#2B542C">注册</font></a>
 
 											</span></div>
             </div>
