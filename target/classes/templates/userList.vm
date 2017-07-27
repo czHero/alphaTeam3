@@ -11,38 +11,58 @@
     <title>用户管理界面</title>
 </head>
 <body>
-<div id="wrapper">
-    <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="navbar-collapse collapse" role="navigation">
+        <ul class="nav navbar-nav">
+          <li><a href="/home"  onclick="_hmt.push(['_trackEvent', 'navbar', 'click', 'jquery'])">首页</a></li>
+          <li><a href="/user/list"  onclick="_hmt.push(['_trackEvent', 'navbar', 'click', 'expo'])">用户管理</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right hidden-sm">
+          <li><a href="/index" onclick="_hmt.push(['_trackEvent', 'navbar', 'click', 'about'])">退出</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
 
-        <div class="header-right">
-            <button type ="button" id="search" name="search" class="btn btn-success"> 搜索</button>
-            <button type="button" class="btn btn-success" onclick=window.location='/index'>返回登陆页面</button>
-        </div>
-        <div class="header-rightt">
-            <input class="form-control" id="search_input" name="search_input" type="text"/>
-        </div>
-        <div class="header-rightt">
-            <label>请输入账号名进行搜索</label>
-        </div>
-    </nav>
-
-
+  <div class="jumbotron masthead">
     <!-- /. NAV SIDE  -->
 
-        <div id="page-inner">
-            <div class="row">
-            </div>
-            <div class="row">
-                 <div class="col-md-4">
-                </div>
-            </div>
-               <div class="row">
-                   <div class ="col-md-12">
-                       <h1 class="page-head-line">后台名单信息</h1>
+    <div id="page-inner">
+      <div class="row">
+      </div>
+      <div class="row">
+       <div class="col-md-4">
+       </div>
+     </div>
+     <div class="row">
+       <div class ="col-md-8">
+         <h3 >后台名单信息</h1>
 
-                   </div>
-            </div>
+         </div>
+         <div class="col-md-4">
+           <div class="header-right">
+            <form class="bs-example bs-example-form" role="form">
+              <div class="input-group input-group-lg">
+                <input type="text" id="search_input" name="search_input" class="form-control" placeholder="搜索条件">
+                <span class="input-group-btn">
+                  <button id="search" name="search" class="btn btn-success" type="button">搜索</button>
+                </span>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
 
 
              <hr />
@@ -60,7 +80,8 @@
                                 <th>邮箱</th>
                                 <th>姓名</th>
                                 <th>是否管理员 </th>
-                                <th>编辑</th>
+                                <th>修改</th>
+                                <th>删除</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -79,7 +100,8 @@
                                         #if($customer.admin_flg eq "1")  <td>是</td>
                                         #else <td>否</td>
                                         #end
-                                        <td><a  href="/user/edit?id=$customer.id">编辑</a></td>
+                                        <td><a  href="/user/edit?id=$customer.id">修改</a></td>
+                                        <td><a type="button" href="javascript:deleteclick('$customer.username')" id="delete" name="delete">删除</a></td>
                                 </tr>
                                 #end
                             </tbody>
