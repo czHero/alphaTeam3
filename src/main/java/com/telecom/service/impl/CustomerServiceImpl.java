@@ -26,9 +26,9 @@ public class CustomerServiceImpl implements CustomerService {
         vo.setId(id);
         List<customer> lst = mapper.query(vo);
         if(lst.size() == 0){
-            return true;
-        }else{
             return false;
+        }else{
+            return true;
         }
     }
 
