@@ -60,7 +60,8 @@
                                 <th>邮箱</th>
                                 <th>姓名</th>
                                 <th>是否管理员 </th>
-                                <th>编辑</th>
+                                <th>修改</th>
+                                <th>删除</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -79,7 +80,8 @@
                                         #if($customer.admin_flg eq "1")  <td>是</td>
                                         #else <td>否</td>
                                         #end
-                                        <td><a  href="/user/edit?id=$customer.id">编辑</a></td>
+                                        <td><a  href="/user/edit?id=$customer.id">修改</a></td>
+                                        <td><button type="button" onclick="deleteclick('$customer.id')" class="btn btn-primary" id="delete" name="delete">删除</button></td>
                                 </tr>
                                 #end
                             </tbody>
