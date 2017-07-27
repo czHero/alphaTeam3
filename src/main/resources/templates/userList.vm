@@ -29,7 +29,7 @@
                     <li><a href="/user/list" onclick="_hmt.push(['_trackEvent', 'navbar', 'click', 'expo'])">用户管理</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right hidden-sm">
-                    <li><a href="/index" onclick="_hmt.push(['_trackEvent', 'navbar', 'click', 'about'])">退出</a></li>
+                    <li><<button type="button" class="btn btn-primary" id="quick" name="quick">退出</button></li>
                 </ul>
             </div>
         </div>
